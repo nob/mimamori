@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/*--------------------------------------------------------------- */
+/* common */
+/*--------------------------------------------------------------- */
+#wrapper{
+	background:url(../../common/images/bg_contents2.jpg);
+	-webkit-background-size:320px auto;
+}
+.btRight{
+	position:relative;
+	height:45px;
+	margin:0 0 15px 0;
+}
+.btRight div{
+	float:right;
+}
+.noticeTxt{
+	padding:10px 10px 0 10px;
+	font-size:14px;
+}
+.noticeTxt ul{
+	color:#990000;
+	margin:0 0 20px 0;
+}
+.noticeTxt ul li{
+	line-height:1.2em;	
+}
+.btleft{
+	position:relative;
+	height:45px;
+	margin:0 0 15px 0;
+}
+.formtag1{
+	padding:10px;
+	margin:5px 0;
+	overflow:hidden;
+	font-size:14px;
+	background:url(../../common/images/bg_dot_line.png) repeat-x top,
+	url(../../common/images/bg_dot_line.png) repeat-x bottom;
+	-webkit-background-size:auto 2px;
+}
+.formtag2{
+	padding:10px 10px 0 10px;
+	margin:5px 0;
+	overflow:hidden;
+	font-size:14px;
+	line-height:28px;
+	background:url(../../common/images/bg_dot_line.png) repeat-x top;
+	-webkit-background-size:auto 2px;
+}
+.formTagL{
+	min-height:22px;
+	font-weight:bold;
+	float:left;
+	width:90px;
+	padding:6px 0 0 0;
+}
+.formTagL2{
+	min-height:22px;
+	font-weight:bold;
+	float:left;
+	width:110px;
+}
+.formRtxt{
+	padding:6px 0 0 0;
+}
+.formTagR{
+	min-height:22px;
+	position:relative;
+	float:left;
+	width:210px;
+}
+.formTagR2{
+	min-height:22px;
+	position:relative;
+	float:left;
+	width:180px;
+}
+.formTagR li{
+	margin:0 0 15px 0;
+	line-height:1em;	
+}
+.ftt1{
+	width:197px;	
+}
+.ftt2{
+	width:50px;	
+}
+.Btdialog{
+	float:right;
+}
+.fcaption{
+	font-size:12px;	
+}
+.fline{
+	line-height:0.8em;
+}
+.formEnd{
+	margin-bottom:30px;	
+}
+/* */
+.pageing_nav{
+	position:relative;
+	height:45px;
+	padding:10px 0;
+}
+.pageing_nav div{
+ position:relative;
+}
+#bt_back, #bt_link, #bt_next{
+	position:absolute;
+	top:0;
+}
+#bt_back{
+	left:7px;
+}
+#bt_link{
+	left:112px;
+}
+#bt_next{
+	right:7px;
+}
+
+/*-------------------------------------------------------*/
+/* complete */
+.lastBt{
+	padding:30px 0;
+}
+
+#complete .btSet7 a{
+	font-size:16px;	
+}
+/*-------------------------------------------------------*/
+/* receipt */
+.receipt{
+	padding:10px;	
+}
+
+.btSet {
+  position: relative;
+}
+ 
+.btSet ul {
+  position: relative;
+  left: 50%;
+  float: left;
+}
+ 
+.btSet ul li {
+  position: relative;
+  left: -50%;
+  float: left;
+}
+
+/*-------------------------------------------------------*/
+/* index */
+.formTxt{
+    font-size:13px;
+    margin:5px 0;
+	padding:0 10px;
+}
+.formTxt p{
+	margin:0 0 10px 0;	
+}
+.formTxt a{
+	text-decoration:underline;	
+}

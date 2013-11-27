@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/*--------------------------------------------------------------- */
+/* common */
+/*--------------------------------------------------------------- */
+
+.btSetNav{
+	position:relative;
+	width:66px;
+	height:77px;
+}
+.chk_result{
+	margin:40px auto;
+	padding:0 30px;
+}
+.chk_result h2{
+	margin:20px 0;
+}
+#wrapper{
+	background:url(../../common/images/bg_contents2.jpg);
+	-webkit-background-size:320px auto;
+}
+
+.btSet4{
+	margin:0 auto;
+	padding:0 0 10px 0;
+}
+.btSet4 a{
+	color:#795d44;
+}
+
+input[type="radio"]{
+	font-size:x-large;
+	height:15px;
+	width:15px;
+} 
+input[type="chexkbox"]{
+	font-size:x-large;
+	height:15px;
+	width:15px;
+}
+
+/*----------------------------------------------------------*/
+.chk_bt{
+	margin:0 0 10px;
+	text-align:center;
+}
+.btSet4#step1{
+	margin:0 20px 0;
+}
+.pageing_nav{
+	position:relative;
+	height:90px;
+	padding:20px 0;
+}
+.pageing_nav div{
+ position:relative;
+}
+#bt_back, #bt_link, #bt_next{
+	position:absolute;
+	top:0;
+}
+#bt_back{
+	left:7px;
+}
+#bt_link{
+	left:112px;
+}
+#bt_next{
+	right:7px;
+}
+/*-------------------------------------------------------*/
+/* step2-01 */
+#step2-01 #txtBox{
+	background:url(../images/step2/bg_step2-1_01.jpg) no-repeat;
+	-webkit-background-size:320px auto;
+	font-size:12px;
+	height:110px;
+	padding:10px 10px;
+}
+
+.centering {
+  position: relative;
+  overflow: hidden;
+}
+ 
+.centering ul {
+  position: relative;
+  left: 50%;
+  float: left;
+  font-size:16px;
+  margin:0 0 10px 0;
+}
+ 
+.centering ul li {
+  position: relative;
+  left: -50%;
+  float: left;
+  padding:0 5px;
+}
+#txtBox p{
+	text-align:center;
+	margin: 0 0 10px 0; 
+}
+#txtBox ul{
+}

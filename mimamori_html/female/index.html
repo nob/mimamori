@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>女性疾病見舞金入力画面 | ドコモ・ヘルスケア</title>
+<meta name="viewport" content="width=320,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+<link rel="stylesheet" type="text/css" href="../common/css/default.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="../common/js/common.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<header id="header">
+		<h1><img src="images/pic_header01.jpg" width="320" height="74" alt="女性疾病見舞金入力画面"></h1>
+	</header>
+	<div class="formTxt">
+		<p>添付する領収書にある情報は記載の通りに入力してください。</p>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">氏名</div>
+		<div class="formTagR formRtxt">山田　太郎</div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">住所</div>
+		<div class="formTagR"><input type="text" class="ftt1"></div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">郵便番号</div>
+		<div class="formTagR"><input type="text" class="ftt2"> - <input type="text" class="ftt2"></div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">電話番号</div>
+		<div class="formTagR"><input type="text" class="ftt1"></div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">受診日</div>
+		<div class="formTagR formRtxt">
+				<time datetime="2013-07-22">2013/7/22</time>
+				<div class="formBtR">
+					<div class="btDialog">
+						<div class="touchActive"> <a href="#"><img src="../common/images/bt_dialogbox.png" width="27" height="27" alt=""></a> </div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">医療機関名</div>
+		<div class="formTagR"><input type="text" class="ftt1"></div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">受診科</div>
+		<div class="formTagR formRtxt">婦人科</div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">受診時の<br>
+			症状</div>
+		<div class="formTagR formRtxt">
+			<ul>
+				<li>
+				<label><input type="checkbox" name="example" value="基礎体温の異常" checked="checked">基礎体温の異常</label>
+				</li>
+				<li class="fline">
+				<label><input type="checkbox" name="example" value="月経の異常（周期・量・機関異常含む）">月経の異常<br>
+					<span class="fcaption">（周期・量・機関異常含む）</span></label>
+				</li>
+				<li>
+				<label><input type="checkbox" name="example" value="不正出血などの突発症状">不正出血などの突発症状</label>
+				</li>
+				<li>
+				<label><input type="checkbox" name="example" value="高熱等の体温以上">高熱等の体温以上</label>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">公的保険使用有無</div>
+		<div class="formTagR formRtxt">
+			<label><input type="checkbox" name="example" value="基礎体温の異常">基礎体温の異常</label>
+		</div>
+	</div>
+	<div class="formtag1">
+		<div class="formTagL">初診かどうか</div>
+		<div class="formTagR formRtxt">
+			<label><input type="checkbox" name="example" value="初診での受診である">初診での受診である</label>
+		</div>
+	</div>
+	<div class="formTxt">
+		<p>領収書画像添付<br>
+			※申講前に画像の添付を行います。</p>
+	</div>
+	<nav class="pageing_nav">
+		<div id="bt_back" class="btSet8">
+			<div class="touchActive"><a href="javascript:history.back();">キャンセル</a></div>
+		</div>
+		<div id="bt_next" class="btSet8">
+			<div class="touchActive"> <a href="comfirm.html">確認</a></div>
+		</div>
+	</nav>
+	<!-- /paging_nav --> 
+</div>
+<!-- /wrapper -->
+</body>
+</html>
