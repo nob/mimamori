@@ -40,6 +40,50 @@ input[type="checkbox"]{
 	height:15px;
 	width:15px;
 }
+/*-------------------------------------------------------*/
+/* chk_index */
+
+.topTxt{
+	padding:10px 10px;
+	margin:10px 0;
+	font-size: 93%;
+		background:url(../../common/images/bg_dot_line.png) repeat-x top,
+	url(../../common/images/bg_dot_line.png) repeat-x bottom;
+	-webkit-background-size:auto 2px;
+}
+.chk_index ul li div{
+	width: 248px;
+	margin: 0 auto 15px;
+}
+.check_result h2{
+	padding: 10px;
+	margin: 10px 0;
+	background:url(../../common/images/bg_dot_line.png) repeat-x top,
+	url(../../common/images/bg_dot_line.png) repeat-x bottom;
+	-webkit-background-size:auto 2px;
+}
+.check_result time{
+	padding:5px 10px;
+	margin:5px 0;
+}
+.check_result ul{
+	padding:5px 0;
+	margin:5px 0;
+}
+.check_result ul li{
+	margin: 0 0 7px 10px;
+}
+.btm_bt {
+	margin: 10px 0 0 0;
+	padding: 10px 0;
+	background:url(../../common/images/bg_dot_line.png) repeat-x top;
+	-webkit-background-size:auto 2px;
+}
+
+.btm_bt div{
+	width: 248px;
+	margin: 0 auto 15px;
+}
 
 /*----------------------------------------------------------*/
 #step1.chk_result {
