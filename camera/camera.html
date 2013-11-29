@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="ja-JP">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320,user-scalable=no">
+    <title>みまもり</title>
+    <script type="text/javascript" src="ani_demo3/js/vendors/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="ani_demo3/js/vendors/underscore-min.js"></script>
+    <script type="text/javascript" src="ani_demo3/js/vendors/backbone-min.js"></script>
+<script>
+$(function(){
+
+    //setting
+    var canvas,
+        ctx,
+        image;
+
+
+	$('#close-btn').click(function(event){
+		window.parent.router.navigate('mainview',{trigger:true});
+	});
+    $('#file').change(function(e){
+        e.preventDefault();
+        var item = $(this)[0].files[0];
+        var reader = new FileReader();
+        itemUpload();
+    });
+
+    function itemUpload(){
+
+        canvas = $('canvas');
+        ctx = canvas[0].getContext("2d");
+        image = new Image();
+
+        if(image){
+
+    		console.log("click....");
+    		var file_ele = $('#file')[0];
+    		if(file_ele && file_ele.files[0]){
+    			var file = file_ele.files[0];
+
+
+    			if(file.type.indexOf("image") == 0){
+
+
+    				var reader = new FileReader();
+    				reader.onloadend = function(evt){
+    					image.onload = function(){
+    						var w = image.naturalWidth;
+    				        var h = image.naturalHeight;
+                            var rflag = false;
+                                rflag = w>=1280 || h>=1280;
+                            if(rflag){
+                                alert( 'width...' + w + " / height..." + h );
+                                var result = confirm("画像を縮小してもよろしいでしょうか？");
+                                if(result){
+                                    //ctx.canvas.width = w;
+                                    //ctx.canvas.height = h;
+                                    ctx.drawImage(image,0,0);
+                                    $('#size1').text(file.size + " (" + w + "," + h + ")");
+                                    rflag = false;
+                                    console.log("縮小しました。");
+                                }else{
+                                    rflag = false;
+                                    console.log("処理をキャンセルしました。");
+                                }                            
+                            }else{
+                                ctx.drawImage(image,0,0);
+                                $('#size1').text(file.size + " (" + w + "," + h + ")");
+                                rflag = false;
+                            }					}
+    					image.src = evt.target.result;
+    				}
+    				console.log("read file....");
+    				reader.readAsDataURL(file);
+    				console.log(file);
+    			}
+    			else{
+    				alert("画像ではありません");
+    			}
+    		}
+    		else{
+    			console.log(file_ele);
+    		}
+
+        }
+    }
+
+	$('#resize').click(function(){
+        var w = image.naturalWidth;
+        var h = image.naturalHeight;
+        console.log("w,h = %s,%s",w,h);
+        if(w > 320){
+            p = 320 / w;
+            w = 320;
+            h = Math.floor(p * h);
+        }
+        else{
+        	w = w;
+            h = h;
+            p = 1;
+        }
+        ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+        ctx.canvas.width = w;
+        ctx.canvas.height = h;
+        ctx.drawImage(image,0,0,w,h);
+        console.log("w,h = %s,%s : %s",w,h,p);
+
+        var data = ctx.canvas.toDataURL();
+        $("#img").val(data);
+        $('#size2').text(data.length + " (" + w + "," + h + ")");
+	});
+	$('#rotate').click(function(){
+		//　縦横・調整
+		var h = image.naturalWidth;
+        var w = image.naturalHeight;
+        console.log("w,h = %s,%s",w,h);
+        if(w > 320){
+            p = 320 / w;
+            w = 320;
+            h = Math.floor(p * h);
+        }
+        else{
+            w = w;
+            h = h;
+            p = 1;
+        }
+        ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+        ctx.canvas.width = w;
+        ctx.canvas.height = h;
+        ctx.rotate( Math.PI / 2 );
+        ctx.translate(0,0);
+        ctx.drawImage(image,0,-w + 80,w,h);
+        context.save();
+        console.log("w,h = %s,%s : %s",w,h,p);
+
+        var data = ctx.canvas.toDataURL();
+        $("#img").val(data);
+        $('#size2').text(data.length + " (" + w + "," + h + ")");
+	});
+});
+</script>
+</head>
+<body>
+    <h1>みまもり</h1>
+    <canvas id="canvas" width="320" height="200">
+    </canvas>
+
+    <form>
+        <input type="file" id="file" />
+    </form>
+    <button id="upload">アップロード</button><br />
+    <span id="size1"></span>バイト<br />
+    <button id="resize">リサイズ</button>
+    <button id="rotate">回転</button>
+    <span id="size2"></span>バイト<br />
+
+    <form method="POST">
+        <input type="hidden" name="img" id="img" />
+        <button>送信</button>
+    </form>
+</body>
+</html>
