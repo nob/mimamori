@@ -438,3 +438,351 @@ var Dialog = function( dialogCode , opts ){
 	}
 
 }
+
+/** Dialog functions below.**/
+// メッセージ等は jcode.js で管理
+
+// ダイアログ表示
+var showDialog = function( dialogCode , opts ){
+	console.log( dialogCode , opts );
+
+	var title = "", message = "", btn, url, callback;
+	var ret = false;
+	btn = new Array(2);
+	url = new Array(2);
+	callback = new Array(2);
+
+	title = jcode[dialogCode].title;
+	message = jcode[dialogCode].message;
+	if( !!opts ){
+		if( !!opts.msgcode ) message  = jcode[dialogCode].messages[opts.msgcode];
+		if( !!opts.message ) message  = opts.message;
+		if( !!opts.addmsg  ) message += opts.addmsg;
+	}
+
+	// ボタン処理設定
+	setButton(dialogCode, btn, url, callback, opts);
+
+	// ダイアログ生成
+	var str  =	'<div id="dialog">';
+		str +=		'<div class="dialogContainer">';
+		str +=			'<p class="dialogTitle">' + title + '</p>';
+		str +=			'<p class="dialogMessage">' + message + '</p>';
+		str +=			'<button class="dialogBtnL">' + btn[0] + '</button>';
+		str +=			'<button class="dialogBtnR">' + btn[1] + '</button>';
+		str +=		'</div>';
+		str +=	'</div>';
+	$('body').append( str );
+
+	// ボタンが一つの場合は中央寄せ
+	if( !!!btn[1] ){
+		$('.dialogBtnL').addClass('dialogBtnC');
+		$('.dialogBtnR').css({"display":"none"});
+	}
+
+	$('button.dialogBtnL').on('click', function(){
+		dialogFunc(btn[0], url[0], callback[0])
+	});
+	$('button.dialogBtnR').on('click', function(){
+		dialogFunc(btn[1], url[1], callback[1])
+	});
+
+	return ret;
+
+}
+
+
+// コードごとにボタン生成
+var setButton = function(dialogCode, btn, url, callback, opts){
+	switch ( dialogCode ){
+
+		case "wm001" :
+			btn[0] = "login";
+			btn[1] = "register";
+			url[0] = "./tmp/login.html";
+			url[1] = "./tmp/register.html";
+			break;
+
+		case "a001" :
+			btn[0] = "ok";
+			break;
+
+		case "a002" :
+			btn[0] = "cancel";
+			btn[1] = "import";
+			callback[1] = opts.callback;
+			break;
+
+		case "a003" :
+			btn[0] = "ok";
+			if(opts.process == "register") url[0] = "./tmp/mainview.html";
+			break;
+
+		case "a004" :
+			btn[0] = "back";
+			btn[1] = "import";
+			url[0] = document.referrer;
+			callback[1] = opts.callback;
+			break;
+
+		case "a005" :
+			btn[0] = "ok";
+			if(opts.progress == 1){ url[0] = "./tmp/register3.html"; }
+			if(opts.progress == 3){ url[0] = "./tmp/register5.html"; }
+			if(opts.progress == 5){ url[0] = "./tmp/register6.html"; }
+			if(opts.progress == 6){ url[0] = "./tmp/register6.html"; }
+			break;
+
+		case "a008" :
+			btn[0] = "site";
+			url[0] = "http://www.newphoria.co.jp/vision/index.html";
+			break;
+
+		case "a011" :
+			btn[0] = "ok";
+			url[0] = "./tmp/register1.html";
+			break;
+
+		case "b001" :
+			btn[0] = "to_register";
+			url[0] = "./tmp/register.html";
+			break;
+
+		case "c002" :
+			btn[0] = "ok";
+			break;
+
+		case "c010" :
+			btn[0] = "ok";
+			break;
+
+		case "c013" :
+			btn[0] = "ok";
+			break;
+
+		case "c014" :
+			btn[0] = "ok";
+			break;
+
+		case "c015" :
+			btn[0] = "re-input";
+			btn[1] = "ok2";
+			callback[1] = opts.callback;
+			break;
+
+		case "c016" :
+			btn[0] = "re-input";
+			btn[1] = "register2";
+			callback[1] = opts.callback;
+			break;
+
+		case "c020" :
+			btn[0] = "ok";
+			url[0] = "./tmp/period-list.html"
+			break;
+
+		case "d001" :
+			btn[0] = "cancel";
+			btn[1] = "input-now";
+			url[1] = "./tmp/period-list.html"
+			break;
+
+		case "d002" :
+			btn[0] = "cancel";
+			btn[1] = "input-now";
+			url[1] = "./tmp/period-list.html"
+			break;
+
+		case "d003" :
+			btn[0] = "ok";
+			break;
+
+		case "d004" :
+			btn[0] = "ok";
+			break;
+
+		case "d005" :
+			btn[0] = "input-now";
+			url[0] = "./tmp/period-list.html"
+			break;
+
+		case "d006" :
+			btn[0] = "close";
+			btn[1] = "check";
+			url[1] = "http://www.newphoria.co.jp/news/index.html"
+			break;
+
+		case "e005" :
+			btn[0] = "ok";
+			break;
+
+		case "f001" :
+			btn[0] = "not_input";
+			btn[1] = "do_input";
+			url[0] = "./tmp/period-list.html"
+			url[1] = "./tmp/tempera-graph.html"
+			break;
+
+		case "f005" :
+			btn[0] = "ok";
+			url[0] = "./tmp/period-list.html"
+			break;
+
+		case "f006" :
+			btn[0] = "ok";
+			break;
+
+		case "k001" :
+			btn[0] = "ok";
+			break;
+
+		case "k002" :
+			btn[0] = "ok";
+			break;
+
+		case "k003" :
+			btn[0] = "ok";
+			break;
+
+		case "k004" :
+			btn[0] = "ok";
+			break;
+
+		case "k005" :
+			btn[0] = "ok";
+			break;
+
+		case "k006" :
+			btn[0] = "ok";
+			break;
+
+		case "k007" :
+			btn[0] = "ok";
+			break;
+
+		case "k008" :
+			btn[0] = "ok";
+			break;
+
+		case "k009" :
+			btn[0] = "ok";
+			if( opts.msgcode == 2 || opts.msgcode == 6 ){
+				btn[1] = "detail";
+				url[1] = opts.url;
+			}
+			break;
+
+		case "k010" :
+			btn[0] = "pic-cancel";
+			btn[1] = "pic-register";
+			callback[0] = opts.callback;
+			callback[1] = opts.callback2;
+			break;
+
+		case "k011" :
+			btn[0] = "ok";
+			break;
+
+		case "k012" :
+			btn[0] = "ok";
+			break;
+
+		case "k013" :
+			btn[0] = "ok";
+			break;
+
+		case "k014" :
+			btn[0] = "ok";
+			break;
+
+		case "m005" :
+			btn[0] = "cancel";
+			btn[1] = "ok2";
+			callback[1] = opts.callback;
+			break;
+
+		case "m006" :
+			btn[0] = "cancel";
+			btn[1] = "ok2";
+			callback[1] = opts.callback;
+			break;
+
+		case "m007" :
+			btn[0] = "ok";
+			break;
+
+		case "m008" :
+			btn[0] = "ok";
+			break;
+
+		case "m009" :
+			btn[0] = "ok";
+			break;
+
+		case "err001" :		// 通信エラー（アプリ終了）
+			btn[0] = "finish";
+			btn[1] = "retry";
+			url[0] = "http://www.newphoria.co.jp";
+			break;
+
+		case "err002" :		// 通信エラー（ダイアログ閉じる）
+			btn[0] = "back";
+			btn[1] = "retry";
+			break;
+
+		case "err003" :		// 補償サーバメンテナンス中
+			btn[0] = "finish";
+			url[0] = "http://www.newphoria.co.jp";
+			break;
+
+		case "err004" :		// 時刻不整合エラー
+			btn[0] = "finish";
+			btn[1] = "retry";
+			url[0] = "http://www.newphoria.co.jp";
+			break;
+
+		case "err005" :		// 通信エラー（前の画面に戻る）
+			btn[0] = "back";
+			btn[1] = "retry";
+			url[0] = document.referrer;
+			break;
+
+		case "err006" :		// 想定外エラー
+			btn[0] = "back";
+			btn[1] = "retry";
+			url[0] = document.referrer;
+			break;
+
+		case "err007" :		// ログインエラー
+			btn[0] = "back";
+			url[0] = document.referrer;
+			break;
+
+		case "err008" :		// IOExceptionによる認証不正エラー
+			btn[0] = "back";
+			btn[1] = "retry";
+			url[0] = document.referrer;
+			break;
+
+	}
+}
+
+
+
+// ボタン押下時の処理
+var dialogFunc = function(btn, url, callback){
+
+	console.log("'" + btn + "' pushed");
+	dialogClose();
+	if(!!callback){ eval(callback); }
+	if(!!url){ location.href = url; }
+
+}
+
+// ダイアログを閉じる
+var dialogClose = function(){
+	$('button.dialogBtnL').off('click');
+	$('button.dialogBtnR').off('click');
+	$('#dialog').remove();
+}
+
